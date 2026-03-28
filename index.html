@@ -50,7 +50,7 @@
     height: 6px;
     background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
   }
-  .cover .sword { font-size: 64px; margin-bottom: 20px; opacity: 0.9; }
+  .cover .logo-mark { margin-bottom: 20px; }
   .cover .brand { font-family: 'Playfair Display', serif; font-size: 14px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 60px; }
   .cover h1 { font-family: 'Playfair Display', serif; font-size: 56px; font-weight: 700; line-height: 1.1; margin-bottom: 16px; }
   .cover h1 em { color: var(--gold-light); font-style: normal; }
@@ -120,7 +120,7 @@
   .stat-box.teal { background: var(--teal); }
   .stat-box.light { background: var(--lgray); color: var(--navy); }
   .stat-number {
-    font-family: 'Playfair Display', serif;
+    font-family:'Playfair Display', serif;
     font-size: 42px;
     font-weight: 700;
     line-height: 1;
@@ -144,11 +144,11 @@
     background: white;
     border-left: 4px solid var(--gold);
     padding: 24px 28px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);;
   }
   .building-card.teal-border { border-left-color: var(--teal); }
   .building-card.navy-border { border-left-color: var(--navy); }
-  .building-name { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+  .building-name { font-family:'Playfair Display', serif; font-size: 17px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
   .building-address { font-size: 12px; color: #888; margin-bottom: 14px; }
   .building-stats { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
   .bstat { }
@@ -180,7 +180,7 @@
   .market-table tbody tr { border-bottom: 1px solid #eee; transition: background 0.15s; }
   .market-table tbody tr:hover { background: #f9f9f7; }
   .market-table tbody tr.highlight { background: rgba(184,151,58,0.08); }
-  .market-table tbody tr.highlight td { font-weight: 600; }
+  .market-table tbodyy tr.highlight td { font-weight: 600; }
   .market-table tbody td { padding: 14px 18px; color: var(--dkgray); }
   .market-table tbody td.right { text-align: right; font-feature-settings: "tnum"; }
   .market-table tbody td.gold { color: var(--gold); font-weight: 700; }
@@ -315,15 +315,60 @@
     body { background: white; }
     .cover { min-height: 100vh; }
     .page { padding: 40px; }
+    .pdf-download-btn { display: none !important; }
+  }
+
+  /* ── PDF DOWNLOAD BUTTON ─────────────────────── */
+  .pdf-download-btn {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    z-index: 9999;
+    background: var(--navy);
+    color: var(--gold);
+    border: 1.5px solid var(--gold);
+    border-radius: 4px;
+    padding: 12px 22px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 20px rgba(13,34,64,0.35);
+    transition: background 0.2s, color 0.2s, transform 0.15s;
+  }
+  .pdf-download-btn:hover {
+    background: var(--gold);
+    color: var(--navy);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(13,34,64,0.45);
+  }
+  .pdf-download-btn svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
   }
 </style>
 </head>
 <body>
 
+<!-- ── PDF DOWNLOAD BUTTON ──────────────────────────────────────────────── -->
+<button class="pdf-download-btn" onclick="window.print()" title="Save as PDF using your browser's Print → Save as PDF">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+    <polyline points="7 10 12 15 17 10"/>
+    <line x1="12" y1="15" x2="12" y2="3"/>
+  </svg>
+  Download PDF
+</button>
+
 <!-- ══ COVER ══════════════════════════════════════════════════════════════ -->
 <div class="cover">
-  <div class="sword">⚔</div>
-  <div class="brand">Camelot Realty Group</div>
+  <div class="logo-mark"><img src="https://www.camelot.nyc/wp-content/uploads/2015/03/Camelot-logo-footer-white.png" alt="Camelot Realty Group" style="height:72px; width:auto;"></div>
   <h1>New York City<br><em>Residential Market</em><br>Report</h1>
   <div class="subtitle">Q1 2026 — First Quarter</div>
   <div class="divider"></div>
@@ -333,7 +378,7 @@
     <strong>Published:</strong> March 2026 &nbsp;|&nbsp; <strong>Prepared by:</strong> David Allen Goldoff, CEO<br>
     <strong>Brokerage Intelligence Lead:</strong> Eleni Palmeri, Head of Leasing &amp; Sales
   </div>
-  <div class="tagline">Protecting the Castle. Advancing the Kingdom.</div>
+  <div class="tagline">Boutique. By Design. Powered by Intelligence.</div>
 </div>
 
 <!-- ══ PAGE ═══════════════════════════════════════════════════════════════ -->
@@ -375,7 +420,7 @@
           <strong style="color:var(--navy);">Manhattan rentals</strong> remain strong, with median rents in key submarkets — Chelsea, Murray Hill, Harlem, Hell's Kitchen — holding at or above Q4 2025 levels. The sub-$3,500 one-bedroom segment shows the tightest supply, with median days-on-market under 14 days across Camelot-managed neighborhoods.
         </p>
         <p style="line-height:1.9; font-size:14px; color:#555;">
-          <strong style="color:var(--navy);">The outer boroughs</strong> continue to attract residents priced out of core Manhattan. Sunnyside and Woodside in Queens demonstrate strong rental absorption, with demand from remote workers and young families sustaining sub-3% vacancy rates in Camelot's Queens portfolio.
+          <strong style="color:var(--navy);">The outer boroughs</strong> continue to attract residents priced out of core Manhattan. Sunnyskde and Woodside in Queens demonstrate strong rental absorption, with demand from remote workers and young families sustaining sub-3% vacancy rates in Camelot's Queens portfolio.
         </p>
       </div>
       <div>
@@ -395,7 +440,7 @@
     <div class="section-title">Camelot-Managed Buildings: <em>Value Analysis</em></div>
     <div class="section-rule"></div>
     <div class="section-intro">
-      The following analysis covers confirmed buildings from the Camelot portfolio with verified square footage data from the RealtyMX building registry. Estimated values are derived from neighborhood comparable sales ($/sqft) and rental market data for Q1 2026.
+      The following analysis covers confirmed buildings from the Camelot portfolio with verified square footage data from the RealtyMX Building registry. Estimated values are derived from neighborhood comparable sales ($/sqft) and rental market data for Q1 2026.
     </div>
 
     <table class="market-table">
@@ -681,7 +726,7 @@
     </table>
 
     <div class="callout">
-      <div class="callout-title">⚔ Camelot Intelligence Note</div>
+      <div class="callout-title">Camelot Intelligence Note</div>
       <p>Five of six confirmed Camelot buildings are trading <strong>above their neighborhood median $/sqft</strong> — a testament to disciplined financial management, proactive maintenance, and strong board relationships. Murray Hill Mixed-Use Condominium's slight discount to its Murray Hill peers represents a targeted capital advisory opportunity: a lobby renovation and modernized amenity offering could close the gap and add <strong>$800K+ in building value</strong> within 24 months.</p>
     </div>
   </div>
@@ -813,7 +858,7 @@
     </div>
 
     <div class="callout">
-      <div class="callout-title">⚔ SCOUT Intelligence Note</div>
+      <div class="callout-title">SCOUT Intelligence Note</div>
       <p>The concentration of 23 buildings in SoHo/Tribeca (ZIP 10013) and 17 in Chelsea/West Village (10011) represents Camelot's highest-value acquisition target corridor. <strong>Average condo values in these submarkets run $1,600–2,400/sqft</strong> — two to three times the portfolio's current blended average. SCOUT monitors HPD violations, management company changes, and mortgage maturities across all 196 tracked buildings in real-time.</p>
     </div>
   </div>
@@ -906,7 +951,7 @@
   <!-- THE CAMELOT DIFFERENCE -->
   <div class="section">
     <div class="section-label">Why Camelot</div>
-    <div class="section-title">Not a Castle. <em>A Standard.</em></div>
+    <div class="section-title">Our Standard. <em>Our Difference.</em></div>
     <div class="section-rule"></div>
 
     <!-- BRAND ORIGIN STATEMENT -->
@@ -923,7 +968,7 @@
           After the loss of President Kennedy, Jackie chose one word to define what his presidency had meant: <strong style="color:var(--gold-light);">Camelot</strong>. Not because it was a fairy tale. Because it was a standard — a belief that for one brief, shining moment, the people in charge of something important could do it with <strong style="color:var(--gold-light);">idealism, excellence, glamour, and genuine care.</strong>
         </p>
         <p style="font-size:15px; line-height:1.9; color:rgba(255,255,255,0.82);">
-          That is what we named our company after. Not swords and armor. The conviction that the management of a building — someone's home, someone's investment, someone's legacy — deserves to be done at that level. <strong style="color:white;">Beautifully. Intelligently. With absolute intention.</strong>
+          That is what we named our company after. The conviction that the management of a building — someone's home, someone's investment, someone's legacy — deserves to be done at that level. <strong style="color:white;">Beautifully. Intelligently. With absolute intention.</strong>
         </p>
       </div>
     </div>
@@ -1024,9 +1069,7 @@
         <div style="display:grid; grid-template-columns:auto 1fr; gap:32px; align-items:center;">
           <div>
             <!-- LOGO MARK -->
-            <div style="font-family:'Playfair Display',serif; font-size:28px; color:var(--gold); line-height:1;">⚔</div>
-            <div style="font-family:'Playfair Display',serif; font-size:13px; color:var(--gold); letter-spacing:3px; text-transform:uppercase; margin-top:6px; white-space:nowrap;">Camelot</div>
-            <div style="font-size:9px; color:rgba(255,255,255,0.5); letter-spacing:2px; text-transform:uppercase; margin-top:2px;">Realty Group</div>
+            <img src="https://www.camelot.nyc/wp-content/uploads/2015/03/Camelot-logo-footer-white.png" alt="Camelot Realty Group" style="height:56px; width:auto; display:block;">
           </div>
           <div style="font-size:13px; color:rgba(255,255,255,0.85); line-height:2.2;">
             <div><strong style="color:var(--gold-light);">David Allen Goldoff</strong> &nbsp;·&nbsp; CEO &amp; Principal</div>
@@ -1039,7 +1082,7 @@
       </div>
 
       <div style="margin-top:32px; font-family:'Playfair Display',serif; font-style:italic; color:var(--gold); font-size:15px;">
-        Protecting the Castle. Advancing the Kingdom.
+        Boutique. By Design. Powered by Intelligence.
       </div>
     </div>
   </div>
@@ -1068,7 +1111,7 @@
       <strong style="color:#444;">Third-Party Data Sources.</strong> Market data in this report is derived from publicly available records and licensed third-party data providers including RealtyMX, ACRIS (NYC Department of Finance), StreetEasy, OneKey MLS, and REBNY RLS. Camelot Realty Group does not claim ownership of underlying third-party data and makes no representations or warranties regarding its completeness, accuracy, timeliness, or fitness for any particular purpose. Building names in this public edition have been anonymized to protect client confidentiality; neighborhood and property-type designations are used solely for market analysis purposes.
     </p>
     <p style="margin-bottom:10px;">
-      <strong style="color:#444;">No Warranty.</strong> While Camelot Realty Group has made reasonable efforts to ensure the accuracy of the information presented, this report is provided "as is" without warranty of any kind, express or implied. Camelot Realty Group expressly disclaims all warranties, including but not limited to implied warranties of merchantability or fitness for a particular purpose. Estimated property values, rental income projections, and $/sqft benchmarks are point-in-time calculations and do not represent appraised values, guarantees of market performance, or certified appraisals&�nder USPAP or any other appraisal standard.
+      <strong style="color:#444;">No Warranty.</strong> While Camelot Realty Group has made reasonable efforts to ensure the accuracy of the information presented, this report is provided "as is" without warranty of any kind, express or implied. Camelot Realty Group expressly disclaims all warranties, including but not limited to implied warranties of merchantability or fitness for a particular purpose. Estimated property values, rental income projections, and $/sqft benchmarks are point-in-time calculations and do not represent appraised values, guarantees of market performance, or certified appraisals under USPAP or any other appraisal standard.
     </p>
     <p>
       <strong style="color:#444;">Permission &amp; Contact.</strong> Requests for permission to reproduce, republish, or reference data from this report must be submitted in writing to <strong>dgoldoff@camelot.nyc</strong>. Approved citations must credit: <em>"Camelot Realty Group Q1 2026 NYC Residential Market Report (Public Edition), March 2026."</em> Camelot Realty Group reserves the right to update, correct, or withdraw this report at any time without notice.
@@ -1079,8 +1122,7 @@
 <!-- FOOTER -->
 <div class="report-footer">
   <div>
-    <div class="footer-brand">⚔ Camelot Realty Group</div>
-    <div class="footer-tagline">Protecting the Castle. Advancing the Kingdom.</div>
+    <div class="footer-brand"><img src="https://www.camelot.nyc/wp-content/uploads/2015/03/Camelot-logo-footer-white.png" alt="Camelot Realty Group" style="height:36px; width:auto; vertical-align:middle;"></div>
   </div>
   <div class="footer-meta">
     David Allen Goldoff, CEO &nbsp;·&nbsp; dgoldoff@camelot.nyc<br>
